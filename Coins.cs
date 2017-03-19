@@ -41,10 +41,8 @@ namespace coins
                     }
                 }
             }
-
-            for (int i = 0; i <= makeChangeFor; i++){
-                Console.WriteLine(i + "\t\t" + minCoins[i] + "\t\t" + lastCoin[i]);
-            }            
+            
+            Console.WriteLine(makeChangeFor + "\t\t" + minCoins[makeChangeFor] + "\t\t" + lastCoin[makeChangeFor]);                        
         }
     }
 }
