@@ -2,6 +2,8 @@
 {
     using System;
     using System.Windows.Forms;
+    using System.Collections;
+    using System.Collections.Generic;
 
     class Program
     {
@@ -34,7 +36,8 @@
             if (!string.IsNullOrEmpty(s))
             {
                 s = s.Trim();
-                s = s.Replace(Environment.NewLine, "','");
+                HashSet<string> splitted = new HashSet<string>(s.Split(Environment.NewLine.ToCharArray(), StringSplitOptions.RemoveEmptyEntries));
+                s = string.Join("','", splitted);
                 Clipboard.SetText("('" + s + "')");
             }
         }
@@ -45,7 +48,8 @@
             if (!string.IsNullOrEmpty(s))
             {
                 s = s.Trim();
-                s = s.Replace(Environment.NewLine, ",");
+                HashSet<string> splitted = new HashSet<string>(s.Split(Environment.NewLine.ToCharArray(), StringSplitOptions.RemoveEmptyEntries));
+                s = string.Join(",", splitted);
                 Clipboard.SetText("(" + s + ")");
             }
         }
